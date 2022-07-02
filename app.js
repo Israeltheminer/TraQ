@@ -41,7 +41,6 @@ app.post("/", (req, res)=> {
          let ip_address = IP_DATA.ip
          let ip_location = IP_DATA.location
          let ip_isp = IP_DATA.isp
-         console.log(IP_DATA)
          res.render('result', {
             ip_address,
             ip_location,
