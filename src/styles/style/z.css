@@ -1,0 +1,23 @@
+body{
+   font-family: 'Rubik', sans-serif;
+   background-image: url("../assets/images/pattern-bg.png");
+   background-size: 100% 330px;
+   background-repeat: no-repeat;
+   background-position: top;
+}
+
+input,
+input::placeholder {
+   font-size: 17px;
+   color: #a5a5a5;
+}
+
+.result-box{
+   left: 50%;
+   transform: translate(-50%);
+   z-index: 50;
+}
+
+#map{
+   z-index: 0;
+}
