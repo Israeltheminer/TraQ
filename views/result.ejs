@@ -1,0 +1,70 @@
+<body class="m-0 p-0">
+	<div class="main-box relative min-h-[270px] mt-[3rem]">
+		<div class="main-heading">
+			<h1 class="w-fit mx-auto mt-[2rem] mb-[1.5rem] font-medium text-white text-[40px]">TraQ</h1>
+		</div>
+		<div class="ip-form h-[3rem] bg-white pl-[1rem] w-fit my-4 mx-auto rounded-xl">
+			<form action="/" method="post" class="h-[100%]">
+				<input class="border-none w-[400px] outline-none" type="text" name="ip" id="ipInput" placeholder="Search for any IP address or domain" required>
+				<% if(ip_location !== undefined){%> 
+					<input type="hidden"value="<%= ip_location.lat %>" id="ip_lat">
+					<input type="hidden" value="<%= ip_location.lng %>" id="ip_lng">
+				<% } else{ %>
+					<input type="hidden"value="<%= blank %>" id="ip_lat">
+					<input type="hidden" value="<%= blank %>" id="ip_lng">
+				<% }%> 
+				<button class="bg-black h-[100%] w-14 rounded-r-xl cursor-pointer" type="submit"><img class="mx-auto" src="dist/assets/images/icon-arrow.svg"></button>
+			</form>
+		</div>
+		<div class="result-box flex bg-white justify-around w-[80%] rounded-xl mx-auto absolute top-[185px] min-h-[170px] content-center">
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">IP ADDRESS</span>
+				<h2 class="value my-3 mx-auto text-[26px] ">
+					<% if(ip_address !== undefined){%> 
+						<%= ip_address %>
+					<% } else{ %>
+						<%= blank %>
+					<% }%>
+				</h2>
+			</div>
+			<div class="result-divider h-[100px] w-[1px] border border-[#a5a5a5ac] self-center">
+			</div>
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">LOCATION</span>
+				<h2 class="value my-3 mx-auto text-[26px] ">
+					<% if(ip_location !== undefined){%> 
+						<%= ip_location.city %> <%= ip_location.region %> <%= ip_location.postalCode %>
+					<% } else{ %>
+						<%= blank %>
+					<% }%>
+				</h2>
+			</div>
+			<div class="result-divider h-[100px] border border-[#a5a5a5ac] self-center">
+			</div>
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">TIMEZONE</span>
+				<h2 class="value my-3 mx-auto text-[26px] ">
+					<% if(ip_location !== undefined){%> 
+						UTC <%= ip_location.timezone %>
+					<% } else{ %>
+						<%= blank %>
+					<% }%>
+				</h2>
+			</div>
+			<div class="result-divider h-[100px] border border-[#a5a5a5ac] self-center">
+			</div>
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">ISP</span>
+				<h2 class="value my-3 mx-auto text-[26px] ">
+					<% if(ip_isp !== null){%> 
+						<%= ip_isp%>
+					<% } else{ %>
+						<%= blank %>
+					<% }%>
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="map-image-box h-[800px]" id="map"></div>
+	<script src="dist/scripts/main.js"></script>
+</body>
