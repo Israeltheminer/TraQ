@@ -1,25 +1,29 @@
-<body class="m-0 p-0">
-	<div class="main-box relative min-h-[270px] mt-[3rem]">
+<body class="m-0 p-0 xl:bg-[length:100%_500px]">
+	<div class="main-box relative min-h-[270px] mt-[3rem] xl:min-h-[400px]">
 		<div class="main-heading">
 			<h1 class="w-fit mx-auto mt-[2rem] mb-[1.5rem] font-medium text-white text-[40px]">TraQ</h1>
 		</div>
-		<div class="ip-form h-[3rem] bg-white pl-[1rem] w-fit my-4 mx-auto rounded-xl">
-			<form action="/" method="post" class="h-[100%]">
-				<input class="border-none w-[400px] outline-none" type="text" name="ip" id="ipInput" placeholder="Search for any IP address or domain" required>
-				<% if(ip_location !== undefined){%> 
-					<input type="hidden"value="<%= ip_location.lat %>" id="ip_lat">
-					<input type="hidden" value="<%= ip_location.lng %>" id="ip_lng">
-				<% } else{ %>
-					<input type="hidden"value="<%= blank %>" id="ip_lat">
-					<input type="hidden" value="<%= blank %>" id="ip_lng">
-				<% }%> 
-				<button class="bg-black h-[100%] w-14 rounded-r-xl cursor-pointer" type="submit"><img class="mx-auto" src="dist/assets/images/icon-arrow.svg"></button>
+		<div class="ip-form h-[3rem] bg-white w-fit my-4 mx-auto rounded-xl md:w-[82.5%] sm:h-[2.5rem]">
+			<form action="/" method="post" class="h-[100%] flex justify-between pl-[1rem] ">
+				<div class="flex items-center">
+					<input class="border-none w-[400px] outline-none md:w-[300px] sm:w-[250px] xs:w-[200px] my-auto sm:placeholder-transparent" type="text" name="ip" id="ipInput" placeholder="Search for any IP address or domain" required>
+					<% if(ip_location !== undefined){%>
+						<input type="hidden" value="<%= ip_location.lat %>" id="ip_lat">
+						<input type="hidden" value="<%= ip_location.lng %>" id="ip_lng">
+					<% } else{ %>
+						<input type="hidden"value="<%= blank %>" id="ip_lat">
+						<input type="hidden" value="<%= blank %>" id="ip_lng">
+					<% }%>
+				</div>
+				<div>
+					<button class="bg-black h-[100%] w-14 rounded-r-xl cursor-pointer" type="submit"><img class="mx-auto" src="dist/assets/images/icon-arrow.svg"></button>
+				</div>
 			</form>
 		</div>
-		<div class="result-box flex bg-white justify-around w-[80%] rounded-xl mx-auto absolute top-[185px] min-h-[170px] content-center">
-			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
-				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">IP ADDRESS</span>
-				<h2 class="value my-3 mx-auto text-[26px] ">
+		<div class="result-box flex bg-white justify-around w-[80%] rounded-xl mx-auto absolute top-[185px] min-h-[170px] content-center xl:grid xl:grid-cols-2 xl:w-[650px] md:grid-cols-1 md:w-[85%]">
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem] xl:w-[275px] md:mt-[1.5rem] sm:mt-[1rem] xl:ml-[3rem] md:mx-auto md:text-center md:w-[90%] md:mb-0">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-extrabold md:text-[12px]">IP ADDRESS</span>
+				<h2 class="value my-3 mx-auto text-[26px] xl:font-medium md:text-[22px] sm:text-[20px] md:my-2 sm:my-1">
 					<% if(ip_address !== undefined){%> 
 						<%= ip_address %>
 					<% } else{ %>
@@ -27,11 +31,11 @@
 					<% }%>
 				</h2>
 			</div>
-			<div class="result-divider h-[100px] w-[1px] border border-[#a5a5a5ac] self-center">
+			<div class="result-divider h-[100px] w-[1px] border border-[#a5a5a5ac] self-center xl:hidden">
 			</div>
-			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
-				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">LOCATION</span>
-				<h2 class="value my-3 mx-auto text-[26px] ">
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem] xl:w-[275px] md:mt-[1.5rem] sm:mt-[1rem] xl:ml-[3rem] md:mx-auto md:text-center md:w-[90%] md:mb-0">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-extrabold md:text-[12px]">LOCATION</span>
+				<h2 class="value my-3 mx-auto text-[26px] xl:font-medium md:text-[22px] sm:text-[20px] md:my-2 sm:my-1">
 					<% if(ip_location !== undefined){%> 
 						<%= ip_location.city %> <%= ip_location.region %> <%= ip_location.postalCode %>
 					<% } else{ %>
@@ -39,11 +43,11 @@
 					<% }%>
 				</h2>
 			</div>
-			<div class="result-divider h-[100px] border border-[#a5a5a5ac] self-center">
+			<div class="result-divider h-[100px] border border-[#a5a5a5ac] self-center xl:hidden">
 			</div>
-			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
-				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">TIMEZONE</span>
-				<h2 class="value my-3 mx-auto text-[26px] ">
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem] xl:w-[275px] md:mt-[1.5rem] sm:mt-[1rem] xl:ml-[3rem] md:mx-auto md:text-center md:w-[90%] md:mb-0">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-extrabold md:text-[12px]">TIMEZONE</span>
+				<h2 class="value my-3 mx-auto text-[26px] xl:font-medium md:text-[22px] sm:text-[20px] md:my-2 sm:my-1">
 					<% if(ip_location !== undefined){%> 
 						UTC <%= ip_location.timezone %>
 					<% } else{ %>
@@ -51,11 +55,11 @@
 					<% }%>
 				</h2>
 			</div>
-			<div class="result-divider h-[100px] border border-[#a5a5a5ac] self-center">
+			<div class="result-divider h-[100px] border border-[#a5a5a5ac] self-center xl:hidden">
 			</div>
-			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem]">
-				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-medium">ISP</span>
-				<h2 class="value my-3 mx-auto text-[26px] ">
+			<div class="result w-[205px] mx-auto mt-[2rem] mb-[1rem] xl:w-[275px] md:mt-[1.5rem] sm:mt-[1rem] xl:ml-[3rem] md:mx-auto md:text-center md:w-[90%]">
+				<span class="result-heading  text-[#a5a5a5ac] text-[14px] font-extrabold md:text-[12px]">ISP</span>
+				<h2 class="value my-3 mx-auto text-[26px] xl:font-medium md:text-[22px] sm:text-[20px] md:my-2 sm:my-1">
 					<% if(ip_isp !== null){%> 
 						<%= ip_isp%>
 					<% } else{ %>
@@ -65,6 +69,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="map-image-box h-[800px]" id="map"></div>
+	<div class="map-image-box h-[800px] md:h-[650px] sm:h-[500px]" id="map"></div>
 	<script src="dist/scripts/main.js"></script>
 </body>
