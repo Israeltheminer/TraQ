@@ -9,6 +9,9 @@
     "webpack": "webpack --mode=development",
     "webpack:dev": "webpack --mode=development --watch"
   },
+  "engines": {
+    "node": "18.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Israeltheminer/TraQ.git"
